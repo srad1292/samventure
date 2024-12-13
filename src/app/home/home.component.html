@@ -1,2 +1,21 @@
-<div>My name is Sam...</div>
-<div>Should we go on an adventure?</div>
+<!-- <div>My name is Sam...</div>
+<div>Should we go on an adventure?</div> -->
+
+<div id="home-wrapper-welcome" *ngIf="stateWelcome">
+    <div class="centered icon-container">
+        <button (click)="onButtonClick($event)" [ngClass]="{'active': isActive}">
+            <img src="/assets/img/desktop-icon.png" alt="We are so broken">
+            <figcaption>Samuel Radford</figcaption>
+        </button>
+    </div>
+</div>
+
+
+<div id="home-wrapper-terminal" *ngIf="stateTerminal">
+    <div class="centered">
+        <div class="terminal">
+            <div class="terminal-log">Hello</div>
+            <div class="terminal-log">My name is Samuel</div>
+        </div>
+    </div>
+</div>
