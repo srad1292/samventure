@@ -9,6 +9,7 @@ import { DisplayService } from './service/display.service';
 export class AppComponent implements OnInit {
   title: string = 'samventure';
   bgColor: string = 'plum'; // Default background color
+  gradient: string = this.displayService.defaultGradient;
 
   constructor(private renderer: Renderer2, private displayService: DisplayService) {}
 
@@ -17,9 +18,15 @@ export class AppComponent implements OnInit {
       this.bgColor = color;
       this.updateBodyBackgroundColor(color);
     });
+
+    this.displayService.bgGradientOb.subscribe(gradient => {
+      this.gradient = gradient;
+      this.renderer.setStyle(document.body, 'backgroundImage', gradient);
+    });
   }
 
   updateBodyBackgroundColor(color: string): void {
     this.renderer.setStyle(document.body, 'backgroundColor', color);
+    this.renderer.removeStyle(document.body, 'backgroundImage');
   }
 }

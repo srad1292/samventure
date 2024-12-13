@@ -1,12 +1,76 @@
 <!-- <div>My name is Sam...</div>
 <div>Should we go on an adventure?</div> -->
 
-<div id="home-wrapper-welcome" *ngIf="stateWelcome">
+<div id="home-wrapper-welcome">
+    <div class="icons-grid">
+        <div class="icon-container" *ngIf="stateWelcome">
+            <button (click)="onButtonClick($event)" [ngClass]="{'active': isActive}">
+                <img src="/assets/img/desktop-icon.png" alt="We are so broken">
+                <figcaption>Samuel Radford</figcaption>
+            </button>
+        </div>
+
+        <div class="icon-container" *ngIf="stateTerminal">
+            <button (click)="onButtonClick($event)" [ngClass]="{'active': isActive}">
+                <img src="/assets/img/desktop-icon.png" alt="We are so broken">
+                <figcaption>It's Begun</figcaption>
+            </button>
+        </div>
+    </div>
+
+    <div class="centered" *ngIf="stateTerminal">
+        <div class="terminal">
+            <div class="terminal-menu-bar">
+                <div class="terminal-title">
+                    Terminal
+                </div>
+                <div class="terminal-menu-buttons-container">
+                    <div class="menu-button green"></div>
+                    <div class="menu-button red"></div>
+                </div>
+            </div>
+            <div class="terminal-contents">
+                <div class="terminal-log">&gt; Hello</div>
+                <div class="terminal-log">&gt; My name is Samuel</div>
+                <div class="terminal-log">&gt; My name is Samuel</div>
+                <div class="terminal-log">&gt; My name is Samuel</div>
+                <div class="terminal-log">&gt; My name is Samuel</div>
+                <div class="terminal-log">&gt; My name is Samuel</div>
+                <div class="terminal-log">&gt; My name is Samuel</div>
+                <div class="terminal-log">&gt; My name is Samuel</div>
+                <div class="terminal-log">&gt; My name is Samuel</div>
+                <div class="terminal-log">&gt; My name is Samuel</div>
+                <div class="terminal-log">&gt; My name is Samuel</div>
+                <div class="terminal-log">&gt; My name is Samuel</div>
+                <div class="terminal-log">&gt; My name is Samuel</div>
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div [ngClass]="{'taskbar-light': stateWelcome, 'taskbar-dark': stateTerminal}" class="taskbar">
+        <div class="taskbar-contents">
+            <div></div>
+            <div id="clock">{{currentTime}}</div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div id="home-wrapper-welcome" *ngIf="stateWelcome">
     <div class="centered icon-container">
         <button (click)="onButtonClick($event)" [ngClass]="{'active': isActive}">
             <img src="/assets/img/desktop-icon.png" alt="We are so broken">
             <figcaption>Samuel Radford</figcaption>
         </button>
+    </div>
+
+    <div id="taskbar-light" class="taskbar">
+        <div class="taskbar-contents">
+            <div></div>
+            <div id="clock">{{currentTime}}</div>
+        </div>
     </div>
 </div>
 
@@ -18,4 +82,6 @@
             <div class="terminal-log">My name is Samuel</div>
         </div>
     </div>
-</div>
+</div> -->
+
+
