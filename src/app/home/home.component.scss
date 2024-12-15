@@ -75,6 +75,7 @@
 .terminal {
     border: 1px solid darkgray;
     width: 500px;
+    max-width: 100vw;
     height: 300px;
     display: flex;
     flex-direction: column;
